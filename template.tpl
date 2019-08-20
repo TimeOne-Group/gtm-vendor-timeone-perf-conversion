@@ -220,10 +220,9 @@ ___WEB_PERMISSIONS___
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const injectScript = require('injectScript');
-const setInWindow = require('setInWindow');
-const copyFromWindow = require('copyFromWindow');
-const tip = copyFromWindow('tip') || [];
-tip.push([
+const createQueue = require('createQueue');
+const tipPush = createQueue('tip');
+tipPush([
   "_setConversion",
   data.progid,
   data.comid,
@@ -234,7 +233,6 @@ tip.push([
   data.currency,
   data.subtracking
 ]);
-setInWindow('tip', tip, true);
 
 injectScript('https://' + data.domain + '/p/tip/', data.gtmOnSuccess, data.gtmOnFailure);
 
