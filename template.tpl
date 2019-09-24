@@ -92,8 +92,8 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ],
-    "help": "Ce paramètre est obligatoire. Il correspond à votre propre identifiant faisant référence à la commande de l'internaute.",
-    "displayName": "Identifiant de la commande client",
+    "help": "Ce paramètre correspond à votre propre identifiant faisant référence à la conversion réalisée par l'internaute.",
+    "displayName": "Identifiant de la conversion client",
     "simpleValueType": true,
     "name": "uniqID",
     "type": "TEXT"
@@ -120,7 +120,7 @@ ___TEMPLATE_PARAMETERS___
     "type": "TEXT"
   },
   {
-    "help": "À utiliser uniquement en cas de mise en place du déport de tracking sur votre propre système.",
+    "help": "À utiliser uniquement en cas de mise en place du déport de tracking sur votre propre système et sur recommandation des équipes TimeOne.",
     "displayName": "Identifiant de tracking",
     "simpleValueType": true,
     "name": "subtracking",
