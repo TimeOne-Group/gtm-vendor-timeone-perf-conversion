@@ -1,5 +1,5 @@
 homepage: ​"www.timeonegroup.com"​,
-documentation: ​"https://www.example.com/documentation"​,
+documentation: ​"https://github.com/fabienbarbaud/gtm-vendor-timeone-perf-conversion/blob/master/docs/install.md"​,
 versions:
-  - sha: d31ef246faab4865966757aa76c3bc2fc1da2127
+  - sha: 21a8f2a04c76b1314e0610e897653a3565514b34
     changeNotes: ​Initial release.
