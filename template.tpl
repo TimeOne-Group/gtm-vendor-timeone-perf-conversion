@@ -1,8 +1,16 @@
-﻿___INFO___
+﻿___TERMS_OF_SERVICE___
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
+___INFO___
 
 {
   "displayName": "TimeOne - Tag de conversion",
   "description": "Le tag de conversion TimeOne vous permet de comptabiliser les conversions et de rémunérer vos éditeurs sur la campagne.",
+  "categories": ["AFFILIATE_MARKETING", "ADVERTISING"],
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "TAG",
