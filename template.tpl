@@ -39,6 +39,10 @@ ___TEMPLATE_PARAMETERS___
       {
         "displayValue": "Programmatic",
         "value": "binel.hunkal.com"
+      },
+      {
+        "displayValue": " Trading Media Colombia",
+        "value": "aalkabco.com"
       }
     ],
     "valueValidators": [
@@ -159,6 +163,10 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://binel.hunkal.com/p/tip/"
+              },
+              {
+                "type": 1,
+                "string": "https://aalkabco.com/p/tip/"
               }
             ]
           }
