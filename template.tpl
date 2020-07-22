@@ -1,16 +1,12 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-___INFO___
+﻿___INFO___
 
 {
   "displayName": "TimeOne - Tag de conversion",
   "description": "Le tag de conversion TimeOne vous permet de comptabiliser les conversions et de rémunérer vos éditeurs sur la campagne.",
-  "categories": ["AFFILIATE_MARKETING", "ADVERTISING"],
+  "categories": [
+    "AFFILIATE_MARKETING",
+    "ADVERTISING"
+  ],
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "TAG",
@@ -30,7 +26,7 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "macrosInSelect": true,
+    "macrosInSelect": false,
     "selectItems": [
       {
         "displayValue": "Performance",
@@ -41,8 +37,8 @@ ___TEMPLATE_PARAMETERS___
         "value": "binel.hunkal.com"
       },
       {
-        "displayValue": " Trading Media Colombia",
-        "value": "aalkabco.com"
+        "value": "aalkabco.com",
+        "displayValue": "Trading Media Colombia"
       }
     ],
     "valueValidators": [
@@ -50,7 +46,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ],
-    "help": "Merci de sélectionner le domaine de tracking qui vous a été spécifié par l'équipe TimeOne.",
+    "help": "Merci de sélectionner le domaine de tracking qui vous a été spécifié par l\u0027équipe TimeOne.",
     "displayName": "Domaine de tracking",
     "simpleValueType": true,
     "name": "domain",
@@ -65,7 +61,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ],
-    "help": "Ce paramètre est obligatoire. Il correspond à l'identifiant de votre campagne. Il vous est communiqué par l'équipe TimeOne.",
+    "help": "Ce paramètre est obligatoire. Il correspond à l\u0027identifiant de votre campagne. Il vous est communiqué par l\u0027équipe TimeOne.",
     "displayName": "Identifiant du programme - progid",
     "simpleValueType": true,
     "name": "progID",
@@ -80,7 +76,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "POSITIVE_NUMBER"
       }
     ],
-  "help": "Ce paramètre est obligatoire. Il correspond à l'identifiant de la rémunération à appliquer. Il vous est communiqué par l'équipe TimeOne.",
+    "help": "Ce paramètre est obligatoire. Il correspond à l\u0027identifiant de la rémunération à appliquer. Il vous est communiqué par l\u0027équipe TimeOne.",
     "displayName": "Identifiant de la commission à appliquer - comid",
     "simpleValueType": true,
     "name": "comID",
@@ -92,7 +88,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ],
-    "help": "Ce paramètre est obligatoire. Il correspond à une clé de sécurisation du tag. Il vous est communiqué par l'équipe TimeOne.",
+    "help": "Ce paramètre est obligatoire. Il correspond à une clé de sécurisation du tag. Il vous est communiqué par l\u0027équipe TimeOne.",
     "displayName": "Clé de vérification - iu",
     "simpleValueType": true,
     "name": "iu",
@@ -104,7 +100,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ],
-    "help": "Ce paramètre correspond à votre propre identifiant faisant référence à la conversion réalisée par l'internaute.",
+    "help": "Ce paramètre correspond à votre propre identifiant faisant référence à la conversion réalisée par l\u0027internaute.",
     "displayName": "Identifiant de la conversion client",
     "simpleValueType": true,
     "name": "uniqID",
@@ -118,14 +114,14 @@ ___TEMPLATE_PARAMETERS___
     "type": "TEXT"
   },
   {
-    "help": "Ce paramètre est obligatoire dans le cas d'une conversion à la vente rémunérée au pourcentage. Il correspond au montant total du panier sans inclure les frais de port.",
+    "help": "Ce paramètre est obligatoire dans le cas d\u0027une conversion à la vente rémunérée au pourcentage. Il correspond au montant total du panier sans inclure les frais de port.",
     "displayName": "Montant total de la commande",
     "simpleValueType": true,
     "name": "price",
     "type": "TEXT"
   },
   {
-    "help": "Indiquez ici la devise de la commande lorsqu'elle est différente de la devise de votre campagne. Le format utilisé est ISO 4217 - https://fr.wikipedia.org/wiki/ISO_4217",
+    "help": "Indiquez ici la devise de la commande lorsqu\u0027elle est différente de la devise de votre campagne. Le format utilisé est ISO 4217 - https://fr.wikipedia.org/wiki/ISO_4217",
     "displayName": "Devise (format ISO 4217 - XXX)",
     "simpleValueType": true,
     "name": "currency",
@@ -137,8 +133,51 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "subtracking",
     "type": "TEXT"
+  },
+  {
+    "type": "SELECT",
+    "name": "multiDomain",
+    "displayName": "Domaine bis",
+    "macrosInSelect": false,
+    "selectItems": [
+      {
+        "value": "none",
+        "displayValue": "None"
+      },
+      {
+        "value": "3X",
+        "displayValue": "Programmatic"
+      },
+      {
+        "value": "TMCO",
+        "displayValue": "Trading Media Colombia"
+      }
+    ],
+    "simpleValueType": true,
+    "help": "À utiliser uniquement dans le cas de plusieurs appels de tag sur des domaines différents"
   }
 ]
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+const injectScript = require('injectScript');
+const createQueue = require('createQueue');
+const tipPush = createQueue('tip');
+tipPush([
+  "_setConversion",
+  data.progID,
+  data.comID,
+  data.iu,
+  data.uniqID,
+  data.price,
+  data.dataVar,
+  data.currency,
+  data.subtracking,
+  data.multiDomain !== 'none' ?  data.multiDomain : null
+]);
+
+injectScript('https://' + data.domain + '/p/tip/', data.gtmOnSuccess, data.gtmOnFailure);
 
 
 ___WEB_PERMISSIONS___
@@ -163,10 +202,6 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://binel.hunkal.com/p/tip/"
-              },
-              {
-                "type": 1,
-                "string": "https://aalkabco.com/p/tip/"
               }
             ]
           }
@@ -242,26 +277,13 @@ ___WEB_PERMISSIONS___
 ]
 
 
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+___TESTS___
 
-const injectScript = require('injectScript');
-const createQueue = require('createQueue');
-const tipPush = createQueue('tip');
-tipPush([
-  "_setConversion",
-  data.progID,
-  data.comID,
-  data.iu,
-  data.uniqID,
-  data.price,
-  data.dataVar,
-  data.currency,
-  data.subtracking
-]);
-
-injectScript('https://' + data.domain + '/p/tip/', data.gtmOnSuccess, data.gtmOnFailure);
+scenarios: []
 
 
 ___NOTES___
 
 Created on 13/08/2019 à 14:00:32
+
+

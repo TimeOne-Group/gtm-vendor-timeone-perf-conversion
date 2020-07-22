@@ -43,3 +43,4 @@ Choisir votre déclencheur de transaction
 | Montant total de la commande | NON | Ce paramètre est obligatoire dans le cas d'une conversion à la vente rémunérée au pourcentage. Il correspond au montant total du panier sans inclure les frais de port. |
 | Devise | NON  | Indiquez ici la devise de la commande lorsqu'elle est différente de la devise de votre campagne. Le format utilisé est ISO 4217 - https://fr.wikipedia.org/wiki/ISO_4217 |
 | Identifiant de tracking | NON | À utiliser uniquement en cas de mise en place du déport de tracking sur votre propre système et sur recommandation des équipes TimeOne. |
+| Domaine bis | NON | À utiliser uniquement dans le cas de plusieurs appels de tag sur des domaines différents. |

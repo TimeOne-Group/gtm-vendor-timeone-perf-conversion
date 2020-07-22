@@ -1,8 +1,8 @@
 homepage: ​"www.timeonegroup.com"​,
-documentation: ​"https://github.com/fabienbarbaud/gtm-vendor-timeone-perf-conversion/blob/master/docs/install.md"​,
+documentation: ​"https://github.com/TimeOne-Group/gtm-vendor-timeone-perf-conversion/blob/master/docs/install.md"​,
 versions:
-  - sha: 5644dc171cbf47a6b2667523715595d9a9ad0ebc
-    changeNotes: Add Colombia domain
+  - sha: 521e690d416444f710d2d6676b8ffe11987028b4
+    changeNotes: multiDomain
   - sha: c8088545465454b9efcef80f4b2939248fba66ee
     changeNotes: terms of service & categories
   - sha: 21a8f2a04c76b1314e0610e897653a3565514b34
